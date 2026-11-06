@@ -18,6 +18,7 @@ var THEMES = {
   olimp: { floor: 'marble', fa: '#bdb6a8', fb: '#aaa294', grout: '#8a7030', wallA: '#c4bcac', wallB: '#9a9282', wallLow: '#8a7030', trim: '#5a4818', side: '#9a907e', vign: .6, tint: 'rgba(255,200,120,.05)' },
   diabel: { floor: 'concrete', fa: '#3a1a1a', fb: '#2a1010', grout: '#1a0808', wallA: '#3a1414', wallB: '#200808', wallLow: '#5a1010', trim: '#100404', side: '#2a0c0c', vign: .85, tint: 'rgba(120,0,0,.12)' },
   aniol: { floor: 'marble', fa: '#f8f6f0', fb: '#ebe7dc', grout: '#d8c48a', wallA: '#ffffff', wallB: '#e8e2d4', wallLow: '#e0cf98', trim: '#c0a860', side: '#e6dfcf', vign: .25, tint: 'rgba(255,250,220,.08)' },
+  planetarium: { floor: 'marble', fa: '#1a1e3a', fb: '#151830', grout: '#3a4a8a', wallA: '#22264a', wallB: '#161a34', wallLow: '#2a3270', trim: '#0c0e20', side: '#1a1e3c', vign: .7, tint: 'rgba(60,80,200,.08)' },
   kasyno: { floor: 'carpet', fa: '#6a1f3a', fb: '#55182e', grout: '#e0b040', wallA: '#3a2a52', wallB: '#24183a', wallLow: '#c0902a', trim: '#7a5a12', side: '#2e2244', vign: .6, tint: 'rgba(255,80,160,.05)' }
 };
 // ---------- tekstury podłóg (proceduralne, z ziarnem) ----------
@@ -159,6 +160,7 @@ function drawPerson(o) {
   var lift = o.fly ? -10 - Math.sin(GAME.t * 5) * 2.5 : 0;
   shadow(0, 2, o.fly ? 11 : 13, o.fly ? 4 : 5, o.fly ? .2 : .3);
   X.translate(0, lift);
+  if (o.cos && dir !== 'u') drawCos(o, dir, 'back');
   if (o.flash > 0) X.filter = 'brightness(' + (1 + o.flash * 3) + ') saturate(' + (1 - o.flash * .6) + ')';
   if (o.tintRed > 0) X.filter = 'sepia(1) saturate(6) hue-rotate(-40deg) brightness(' + (.9 + o.tintRed * .2) + ')';
   // skrzydła (lot)
@@ -179,8 +181,10 @@ function drawPerson(o) {
   var arm = o.shoot ? .6 : 0, skin = L.skin || '#e2b49a';
   X.fillStyle = shade(shirt, -.12); [-1, 1].forEach(function (s) { var ay = -24 + (o.shoot && ((dir === 'l' && s < 0) || (dir === 'r' && s > 0)) ? -2 : 0) + Math.sin(wp + (s > 0 ? PI : 0)) * 1.5 * mv; X.beginPath(); X.ellipse(s * 12.5, ay + 5, 3.6, 6.2, s * .25, 0, TAU); X.fill(); X.fillStyle = skin; X.beginPath(); X.arc(s * 13.3, ay + 10.5, 2.6, 0, TAU); X.fill(); X.fillStyle = shade(shirt, -.12); });
   if (o.hand) o.hand(dir);
+  if (o.cos) drawCos(o, dir, 'body');
   // głowa
   drawHead(o, dir, 0, -27);
+  if (o.cos) drawCos(o, dir, 'head');
   X.filter = 'none';
   X.restore();
 }

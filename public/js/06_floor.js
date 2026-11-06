@@ -5,7 +5,7 @@ function saveProf() { LS.set('lzy-prof', PROF); }
 function unlocked(k) { return !k || !!PROF.unl[k]; }
 var R = null; // bieżący bieg
 function initPools() {
-  var P = { tre: [], shop: [], boss: [], devil: [], angel: [], secret: [] };
+  var P = { tre: [], shop: [], boss: [], devil: [], angel: [], secret: [], planet: [] };
   Object.keys(ITEMS).forEach(function (id) {
     var it = ITEMS[id]; if (it.lock && !unlocked(it.lock)) return;
     var pools = WINPOOL[id] || it.pool; pools.forEach(function (p) { if (P[p]) P[p].push(id); });
@@ -81,6 +81,8 @@ function genFloor(fi) {
   if (rest.length) { F.rooms[rest.shift().id].type = 'treasure'; }
   if (!def.last && rest.length) { F.rooms[rest.shift().id].type = 'shop'; }
   if (arcade && rest.length) { F.rooms[rest.shift().id].type = 'arcade'; }
+  // planetarium (jak w Isaacu): od 2. piętra, rzadko – częściej gdy pominiesz skarbce
+  if (fi >= 1 && !def.last && rest.length && rng() < Math.min(.6, .2 + (R.skipTre || 0) * .15)) { F.rooms[rest.shift().id].type = 'planet'; }
   // skrytka: pusta komórka z największą liczbą sąsiadów (nie przy bossie)
   var best = null, bestN = 0;
   for (var gy = 1; gy < GH - 1; gy++) for (var gx = 1; gx < GW - 1; gx++) {
@@ -99,7 +101,7 @@ function genFloor(fi) {
 }
 function roomTheme(F, rm) {
   if (rm.type === 'start' && F.i === 0) return 'lazienka';
-  if (rm.type === 'arcade') return 'kasyno'; if (rm.type === 'devil') return 'diabel'; if (rm.type === 'angel') return 'aniol';
+  if (rm.type === 'arcade') return 'kasyno'; if (rm.type === 'devil') return 'diabel'; if (rm.type === 'angel') return 'aniol'; if (rm.type === 'planet') return 'planetarium';
   return F.def.theme;
 }
 function mkRoom(F, L, type) {
@@ -115,7 +117,7 @@ function makeDoors(F, rm) {
       var other = F.rooms[o], lx = c[0] - rm.gx, ly = c[1] - rm.gy, side = d[2], dr = { side: side, to: o, lx: lx, ly: ly };
       doorGeom(rm, dr);
       var spec = rm.type !== 'normal' && rm.type !== 'start' ? rm.type : other.type !== 'normal' && other.type !== 'start' ? other.type : 'normal';
-      dr.type = spec === 'treasure' || spec === 'shop' || spec === 'boss' || spec === 'secret' || spec === 'arcade' ? spec : 'normal';
+      dr.type = spec === 'treasure' || spec === 'shop' || spec === 'boss' || spec === 'secret' || spec === 'arcade' || spec === 'planet' ? spec : 'normal';
       if (other.type === 'secret') { dr.hidden = true; dr.type = 'secret'; dr.cracked = ((rm.seed >> 3) + o) % 3 !== 0; }
       if (rm.type === 'secret') { dr.type = 'secret'; }
       if (F.i >= 1 && (other.type === 'treasure' || other.type === 'shop')) dr.locked = true;
@@ -226,6 +228,8 @@ function fillRoom(F, rm, rng) {
   } else if (rm.type === 'treasure') {
     rm.peds.push({ x: cx, y: cy, item: poolPick('tre', rng), pool: 'tre' });
     if (F.i >= 3 && rng.chance(.2)) { rm.peds[0].x = cx - 60; rm.peds.push({ x: cx + 60, y: cy, item: poolPick('tre', rng), pool: 'tre', choice: 1 }); rm.peds[0].choice = 1; }
+  } else if (rm.type === 'planet') {
+    rm.peds.push({ x: cx, y: cy, item: poolPick('planet', rng), pool: 'planet' }); rm.decal = 'planet';
   } else if (rm.type === 'shop') {
     var slots = [cx - 160, cx - 80, cx, cx + 80, cx + 160], nItems = rng.chance(.35) ? 2 : 1, picks = rng.shuffle([['heart', 'full', 3], ['heart', 'soul', 5], ['key', 1, 5], ['bomb', 1, 5], ['card', null, 5], ['pill', null, 4], ['battery', 1, 6], ['bomb', 2, 7], ['heart', 'full', 3]]);
     (nItems === 1 ? [2] : [1, 3]).forEach(function (si) { rm.peds.push({ x: slots[si], y: cy + 20, item: poolPick('shop', rng), pool: 'shop', price: 15 }); });

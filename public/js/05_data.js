@@ -9,7 +9,7 @@ var CHARS = {
     cont: 6, red: 6, soul: 0, black: 0, coins: 0, bombs: 1, keys: 0, active: 'hipnoza', items: [], tear: 'pigeon', st: { spd: .25, dmgMult: .85, tears: .3 }, perk: 'homing', lock: 'sigeon' },
   kuzyn: { n: 'Kuzyn', face: 'kuzyn', d: 'Menel spod monopolowego. Mało zdrowia, ciężka ręka, butelki zamiast łez.', look: { shirt: '#16181c', jacket: '#16181c', pants: '#d8d6d0', shoes: '#e8e8e8', hair: '#3a2a1e', skin: '#e2b49a' },
     cont: 4, red: 4, soul: 0, black: 2, coins: 3, bombs: 1, keys: 0, active: 'zubr', items: [], tear: 'bottle', st: { dmgMult: 1.35, spd: -.05, tears: -.1 }, lock: 'simi' },
-  bajtek: { n: 'Bajtek', face: 'bajtek', d: 'Zawsze wyluzowany. Tylko serca z łez, wolne chmurki przenikają wszystko i ogłupiają wrogów.', look: { shirt: '#a48aae', pants: '#2f3542', shoes: '#eeeeee', hair: '#9a7a58', skin: '#e8b49a' },
+  bajtek: { n: 'Bajtek', face: 'bajtek', d: 'Zawsze wyluzowany. Tylko serca z łez, wolne chmurki przenikają wszystko i ogłupiają wrogów.', look: { shirt: '#5a4a7a', jacket: '#3a2f52', pants: '#22262e', shoes: '#e8e8e8', hair: '#6a4a30', skin: '#e8b49a' },
     cont: 0, red: 0, soul: 6, black: 0, coins: 0, bombs: 1, keys: 0, active: 'chill', items: [], tear: 'smoke', st: { dmgMult: 1.05, tears: -.25, range: 2, ss: -.2 }, perk: 'soulOnly', lock: 'scary' }
 };
 var CHARORDER = ['ignaczak', 'prac', 'luz', 'kuzyn', 'bajtek'];

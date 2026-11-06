@@ -175,7 +175,7 @@ function takePed(p) {
   var id = p.item, it = ITEMS[id], old = it.act && P.active ? P.active.id : null;
   giveItem(id); p.price = null; p.deal = null;
   if (old) { p.item = old; p.cd = 1.5; p.pool = p.pool; } else p.item = null;
-  if (p.choice) rm.peds.forEach(function (q) { if (q !== p && q.choice && q.item) { fxPoof(q.x, q.y - 26, '#fff'); q.item = null; } });
+  if (p.choice) rm.peds.forEach(function (q) { if (q !== p && q.choice && q.choice === p.choice && q.item) { fxPoof(q.x, q.y - 26, '#fff'); q.item = null; } });
   calcStats();
 }
 // ---------- gracz ----------

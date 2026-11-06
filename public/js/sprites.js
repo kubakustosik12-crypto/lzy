@@ -292,6 +292,8 @@ S('speed', '#5fb4ff', `
 .......kkkk..... ......kaaaak.... .kkk..kaaak..... ...kkkaaak...... .kkk.kaaak...... .....kaaakkkk... ...kkkaaaaaaak.. .kkk.kbbbbbbbk.. .....kkkkkkkk...`);
 S('clover', '#6fbf3a', `
 ....kkk.kkk..... ...kaaakaaak.... ...kawaaaaak.... ..kkkaaaaakkk... .kaaaaakaaaaak. .kawaaakaaaabk. ..kkkaaaaakkk... ...kaaaaaaak.... ...kaabkkbak.... ....kkk.kkkk.... .......kak...... ......kk........`);
+S('planet', '#d8a050', `
+................ .....kkkkk...... ...kkaaaaakk.... ..kaawaaaaabk... kkkaaaaaaaabbkkk kdddkkkkkkkkddek .kkkaaaaaaabbkk. ...kbaaaaabbk... ....kkbbbbkk.... ......kkkk......`, '#f0e0a0');
 // ---------- głowy potworów i NPC (zamiast emoji) – strasznie ----------
 S('h_kujon', '#e8dcc8', `
 ....kkkkkkkk.... ...kNNNNNNNNk... ..kNNNNNNNNNNk.. ..kNaaaaaaaaNk.. .kkkkkkkaakkkkkk .kxxxxkkkkxxxxk. .kxxrxkaakxrxxk. .kkxxkaaaakxxkk. ..kaaaaaaaaaabk. ..kaRaaaaaaaabk. ..kaRakkkkkaabk. ..kaaakwkwkaabk. ...kaaakkkaabk.. ....kkbbbbbkk... ......kkkk......`);

@@ -40,7 +40,8 @@ function drawHUD(dt) {
   else BOSSBAR.shown = 0;
   // ładowanie lasera
   // napis przedmiotu
-  if (BAN.t > 0) { var a = Math.min(1, BAN.t * 3, (BAN.dur - BAN.t) * 5); X.save(); X.globalAlpha = a; var y = 96; var g2 = X.createLinearGradient(VIEWW / 2 - 200, 0, VIEWW / 2 + 200, 0); g2.addColorStop(0, 'rgba(20,14,10,0)'); g2.addColorStop(.2, 'rgba(20,14,10,.78)'); g2.addColorStop(.8, 'rgba(20,14,10,.78)'); g2.addColorStop(1, 'rgba(20,14,10,0)'); X.fillStyle = g2; X.fillRect(VIEWW / 2 - 200, y - 22, 400, BAN.sub ? 50 : 34);
+  if (BAN.t > 0 && typeof drawStreamer === 'function') drawStreamer();
+  else if (BAN.t > 0) { var a = Math.min(1, BAN.t * 3, (BAN.dur - BAN.t) * 5); X.save(); X.globalAlpha = a; var y = 96; var g2 = X.createLinearGradient(VIEWW / 2 - 200, 0, VIEWW / 2 + 200, 0); g2.addColorStop(0, 'rgba(20,14,10,0)'); g2.addColorStop(.2, 'rgba(20,14,10,.78)'); g2.addColorStop(.8, 'rgba(20,14,10,.78)'); g2.addColorStop(1, 'rgba(20,14,10,0)'); X.fillStyle = g2; X.fillRect(VIEWW / 2 - 200, y - 22, 400, BAN.sub ? 50 : 34);
     hudText(BAN.title, VIEWW / 2, y - 4, 19, BAN.col, 'center'); if (BAN.sub) hudText(BAN.sub, VIEWW / 2, y + 17, 11.5, '#d8cbb0', 'center', false); X.restore(); }
   if (BIG.t > 0) { var a2 = Math.min(1, BIG.t * 2, (3 - BIG.t) * 3); X.save(); X.globalAlpha = a2; X.fillStyle = 'rgba(0,0,0,.5)'; X.fillRect(0, VIEWH / 2 - 40, VIEWW, BIG.sub ? 76 : 56); hudText(BIG.title, VIEWW / 2, VIEWH / 2 - 12, 30, '#f5e6c4', 'center'); if (BIG.sub) hudText(BIG.sub, VIEWW / 2, VIEWH / 2 + 20, 13, '#e8b14a', 'center', false); X.restore(); }
   if (INTRO.t > 0) drawIntro();
@@ -48,7 +49,7 @@ function drawHUD(dt) {
 function pad2(n) { return (n < 10 ? '0' : '') + n; }
 function fmtTime(t) { t = Math.floor(t); var m = Math.floor(t / 60), s = t % 60; return m + ':' + (s < 10 ? '0' : '') + s; }
 var ROOMCOL = { boss: '#c83a2a', treasure: '#e8b84a', shop: '#5aa05a', secret: '#6a6a7a', arcade: '#a04ab8', start: '#8ab8d8' };
-var ROOMICON = { boss: '💀', treasure: '⭐', shop: '🛒', secret: '❔', arcade: '🎰' };
+var ROOMICON = { boss: '💀', treasure: '⭐', shop: '🛒', secret: '❔', arcade: '🎰', planet: '🪐' };
 function drawMinimap(x, y, w, h, cw, ch, big) {
   var F = R.floor, cur = R.room; X.save(); X.fillStyle = 'rgba(0,0,0,' + (big ? .35 : .4) + ')'; rr(x, y, w, h, 6); X.fill(); X.beginPath(); X.rect(x + 2, y + 2, w - 4, h - 4); X.clip();
   var cx, cy; if (cur.gx >= 0) { cx = cur.gx + cur.cw / 2; cy = cur.gy + cur.ch / 2; } else { var bb = F.rooms[F.boss]; cx = bb.gx + .5; cy = bb.gy + .5; }
