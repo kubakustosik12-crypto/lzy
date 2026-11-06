@@ -8,7 +8,8 @@ z postaciami, bossami i światem z gry **5 Koszmarów Szymona Ignaczaka**.
 - 5 postaci z twarzami ze zdjęć (w pixel arcie): Szymon Ignaczak, Pracownik, Luźny, Kuzyn, Bajtek
 - 141 przedmiotów (w tym 40 nowych: anielskie, straszne, aktywne), karty, puszki, drobiazgi, sklep u Heńka, pokoje diabła i anioła, ziarna biegów
 - własne ręcznie rysowane ikony i potwory w pixel arcie (bez emoji), kontury jak w Isaacu, ciemniejsze i straszniejsze piętra
-- **co-op**: na jednym komputerze albo **przez internet** (pokój z kodem)
+- **co-op**: na jednym komputerze albo **przez internet** (pokój z kodem); w co-opie przedmioty są zawsze podwójnie
+- planetarium z 11 przedmiotami-planetami, stroje: przedmioty widać na postaci, wstęga z nazwą przedmiotu
 
 ## Uruchomienie u siebie
 
@@ -81,6 +82,7 @@ public/js/
   sprites.js         ręcznie rysowane sprite'y (ikony, głowy potworów i NPC)
   16_icons.js        podmiana symboli na sprite'y (gra, HUD, teksty, menu)
   17_items.js        nowe przedmioty i mechaniki, częstsze pokoje anioła
+  18_rep.js          planetarium, co-op x2, HUD każdego gracza, stroje z przedmiotów, wstęga
 public/assets/
   faces/faces_<h>.png  pikselowe twarze (atlasy 12–128 px) – można poprawiać ręcznie w Aseprite
   img/                 zdjęcia źródłowe twarzy i klatki bossów z 5 Koszmarów

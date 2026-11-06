@@ -14,10 +14,16 @@ def nearest(c):
     rm = (c[:, None, 0] + PAL[None, :, 0]) / 2; d = c[:, None, :] - PAL[None, :, :]
     dist = (2 + rm / 256) * d[..., 0] ** 2 + 4 * d[..., 1] ** 2 + (2 + (255 - rm) / 256) * d[..., 2] ** 2
     return PAL[dist.argmin(1)]
-def pixelize(im, h):
+# poprawki per postać (Bajtek ma jasne, wyprane zdjęcie – podbijamy kontrast, ciepło i ciemniejsze włosy)
+TUNE = {'bajtek': dict(contrast=1.55, color=1.45, bright=.9, warm=14)}
+def pixelize(im, h, name=''):
     w = max(1, round(im.width * h / im.height))
     rgb = im.convert('RGB'); a = im.getchannel('A')
-    rgb = ImageEnhance.Contrast(rgb).enhance(1.18); rgb = ImageEnhance.Color(rgb).enhance(1.12)
+    t = TUNE.get(name.split('_')[0], {})
+    rgb = ImageEnhance.Contrast(rgb).enhance(t.get('contrast', 1.18)); rgb = ImageEnhance.Color(rgb).enhance(t.get('color', 1.12))
+    if t.get('bright'): rgb = ImageEnhance.Brightness(rgb).enhance(t['bright'])
+    if t.get('warm'):
+        r_, g_, b_ = rgb.split(); r_ = r_.point(lambda v: min(255, v + t['warm'])); b_ = b_.point(lambda v: max(0, v - t['warm'])); rgb = Image.merge('RGB', (r_, g_, b_))
     rgb = rgb.filter(ImageFilter.UnsharpMask(radius=2, percent=90, threshold=2))
     src = Image.merge('RGBA', (*rgb.split(), a))
     small = np.asarray(src.resize((w, h), Image.LANCZOS)).astype(float)
@@ -46,7 +52,7 @@ os.makedirs('public/assets/faces', exist_ok=True)
 meta = {'sizes': SIZES, 'rects': {}}
 srcs = [Image.open(f).convert('RGBA') for f in files]
 for h in SIZES:
-    tiles = [pixelize(im, h) for im in srcs]
+    tiles = [pixelize(im, h, n) for im, n in zip(srcs, names)]
     W = sum(t.width + 1 for t in tiles); atlas = Image.new('RGBA', (W, h)); x = 0
     for n, t in zip(names, tiles):
         atlas.paste(t, (x, 0)); meta['rects'].setdefault(n, {})[h] = [x, t.width]; x += t.width + 1
