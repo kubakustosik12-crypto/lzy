@@ -1,0 +1,81 @@
+:root{--ink:#f3eadb;--dim:#b8ad98;--panel:rgba(18,14,12,.92);--acc:#e8b14a;--red:#d8423a;--blue:#5fb4ff;--paper:#efe6d2}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#0b0908;overflow:hidden;color:var(--ink);font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+#cv{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);display:block;touch-action:none;cursor:none;image-rendering:pixelated;image-rendering:crisp-edges}
+body.menu #cv{cursor:default}
+.scr{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:10;padding:16px}
+.hid{display:none!important}
+.box{background:var(--panel);border:2px solid #4a3a2a;border-radius:14px;padding:22px 26px;max-width:min(760px,100%);max-height:100%;overflow:auto;box-shadow:0 18px 60px rgba(0,0,0,.6)}
+h1,h2,h3{margin:.1em 0 .4em;font-family:Georgia,"Times New Roman",serif;letter-spacing:.02em}
+h2{font-size:26px;color:var(--acc)}
+p{line-height:1.45;color:var(--dim);margin:.4em 0}
+.btn{display:block;width:100%;margin:8px 0;padding:12px 16px;font:700 17px "Trebuchet MS",sans-serif;color:var(--ink);background:#2a211b;border:2px solid #5a4632;border-radius:10px;cursor:pointer;text-align:left;transition:background .12s,transform .12s,border-color .12s}
+.btn small{display:block;font-weight:400;font-size:12.5px;color:var(--dim);margin-top:2px}
+.btn:hover,.btn.sel{background:#3d2f24;border-color:var(--acc);transform:translateX(3px)}
+.btn.pri{background:#5a2a1e;border-color:#c2563a}
+.btn.pri:hover,.btn.pri.sel{background:#7a3424;border-color:#ff8a5a}
+.btn:disabled{opacity:.45;cursor:default;transform:none}
+.row{display:flex;gap:10px}.row .btn{flex:1;text-align:center}
+#title{flex-direction:column;background:radial-gradient(ellipse at center,rgba(40,24,18,.2),rgba(0,0,0,.85))}
+#title .logo{font:900 clamp(34px,7vw,72px)/1 Georgia,serif;color:#f5e6c4;text-shadow:0 4px 0 #6a2a1a,0 10px 30px rgba(0,0,0,.8);text-align:center;letter-spacing:.03em}
+#title .sub{font:700 clamp(13px,2.2vw,19px) "Trebuchet MS",sans-serif;color:#e8b14a;letter-spacing:.35em;text-transform:uppercase;text-align:center;margin:6px 0 18px}
+#title .menu{width:min(380px,92vw)}
+#ver{position:fixed;right:12px;bottom:8px;font-size:12px;color:#6a5e50;z-index:11}
+.chars{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:10px 0}
+.ch{width:132px;padding:10px 8px;border-radius:12px;background:#221a15;border:2px solid #4a3a2a;cursor:pointer;text-align:center;transition:transform .12s,border-color .12s}
+.ch:hover,.ch.sel{transform:translateY(-3px);border-color:var(--acc)}
+.ch.lock{filter:grayscale(1) brightness(.45);cursor:not-allowed}
+.ch canvas{display:block;margin:0 auto 6px}
+.ch b{display:block;font-size:15px}.ch small{color:var(--dim);font-size:11.5px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 14px;font-size:13px;color:var(--dim);margin:8px 0}
+.stats b{color:var(--ink)}
+.keys{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14px}
+.keys b{color:var(--acc);white-space:nowrap}
+.coll{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:6px;margin:10px 0}
+.coll div{height:46px;border-radius:8px;background:#221a15;display:flex;align-items:center;justify-content:center;font-size:26px;border:1px solid #3a2e24}
+.coll div.no{filter:grayscale(1) brightness(.3)}
+#tip{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--panel);padding:8px 14px;border-radius:8px;font-size:13px;z-index:30;pointer-events:none;max-width:90vw}
+.paper{background:var(--paper);color:#2a2018;border-radius:4px;padding:22px 26px;max-width:min(620px,96vw);box-shadow:0 20px 70px rgba(0,0,0,.7);transform:rotate(-1.2deg);font-family:Georgia,serif}
+.paper .mast{font:900 clamp(30px,6vw,52px)/1 Georgia,serif;text-align:center;border-bottom:3px double #2a2018;padding-bottom:6px;letter-spacing:.04em}
+.paper .date{font-size:12px;text-align:center;border-bottom:1px solid #2a2018;padding:3px 0 5px;margin-bottom:12px;color:#5a4a38}
+.paper .head{font:900 clamp(20px,3.6vw,30px)/1.15 Georgia,serif;margin:6px 0 10px}
+.paper p{color:#3a2e22}
+.paper .its{font-size:24px;letter-spacing:3px;margin:8px 0}
+#touch{position:fixed;inset:0;z-index:5;pointer-events:none}
+#touch .tb{position:absolute;width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:26px;pointer-events:auto}
+.toast{position:fixed;left:50%;top:14%;transform:translateX(-50%);z-index:25;text-align:center;pointer-events:none}
+input.tx{font:600 16px monospace;padding:8px 10px;border-radius:8px;border:2px solid #5a4632;background:#1a1410;color:var(--ink);width:100%}
+label.ck{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:15px}
+label.ck input[type=range]{flex:1}
+
+/* ===================== PIXEL ART (etap 2) ===================== */
+@font-face{font-family:"Ignaczak Pixel";src:url(../assets/font/ignaczak-pixel.ttf) format("truetype");font-display:block}
+:root{--ink:#f3eadb;--dim:#b9ab93;--panel:#1e1717;--acc:#f0c43a;--red:#d8423a;--blue:#5fb4ff;--paper:#efe6d2;--edge:#5a3c2a;--px:3px}
+html,body{font-family:"Ignaczak Pixel",ui-monospace,monospace;-webkit-font-smoothing:none;font-smooth:never;font-size:22px}
+canvas{image-rendering:pixelated;image-rendering:crisp-edges}
+h1,h2,h3{font-family:"Ignaczak Pixel",monospace;font-weight:400;letter-spacing:0}
+h2{font-size:33px;color:var(--acc);text-shadow:3px 3px 0 #5a1311}
+p{font-size:22px;line-height:1.35}
+.box{border-radius:0;background:var(--panel);border:var(--px) solid #000;outline:var(--px) solid var(--edge);outline-offset:calc(var(--px) * -2);box-shadow:9px 9px 0 rgba(0,0,0,.75);padding:24px 27px}
+.btn{font:400 22px/1.2 "Ignaczak Pixel",monospace;border-radius:0;background:#30231c;border:var(--px) solid #000;box-shadow:inset 0 calc(var(--px) * -1) 0 #1e1717,inset 0 var(--px) 0 #65422d;transition:none;padding:9px 15px}
+.btn small{font-size:22px;line-height:1.1;color:var(--dim);margin-top:3px;font-weight:400}
+.btn:hover,.btn.sel{background:#542c1d;border-color:#000;box-shadow:inset 0 calc(var(--px) * -1) 0 #30231c,inset 0 var(--px) 0 #f0c43a;transform:translateX(6px)}
+.btn.pri{background:#7a1410;border-color:#000;box-shadow:inset 0 calc(var(--px) * -1) 0 #5a1311,inset 0 var(--px) 0 #d8423a}
+.btn.pri:hover,.btn.pri.sel{background:#b72322;box-shadow:inset 0 calc(var(--px) * -1) 0 #7a1410,inset 0 var(--px) 0 #ffe14d}
+#title .logo{font:400 clamp(44px,8.8vw,99px)/1 "Ignaczak Pixel",monospace;color:#efe6d2;text-shadow:6px 6px 0 #7a1410,12px 12px 0 #000;letter-spacing:0}
+#title .sub{font:400 22px "Ignaczak Pixel",monospace;letter-spacing:.2em;color:var(--acc);text-shadow:3px 3px 0 #000}
+#ver{font-size:11px;color:#6d524a}
+.ch{border-radius:0;background:#30231c;border:var(--px) solid #000;box-shadow:inset 0 var(--px) 0 #65422d;transition:none}
+.ch:hover,.ch.sel{border-color:#f0c43a;transform:translateY(-6px)}
+.ch b{font-size:22px;font-weight:400}.ch small{font-size:11px}
+.stats{font-size:22px}.keys{font-size:22px}
+.coll div{border-radius:0;border:var(--px) solid #000;background:#30231c}
+#tip,.toast{border-radius:0}
+#tip{font-size:22px;border:var(--px) solid #000}
+.paper{border-radius:0;font-family:"Ignaczak Pixel",monospace;box-shadow:9px 9px 0 rgba(0,0,0,.75)}
+.paper .mast,.paper .head{font-family:"Ignaczak Pixel",monospace;font-weight:400}
+input.tx{font:400 22px "Ignaczak Pixel",monospace;border-radius:0;border:var(--px) solid #000;background:#0a0807}
+label.ck{font-size:22px}
+#touch .tb{border-radius:0;border:var(--px) solid rgba(255,255,255,.35)}
+@media (max-width:700px){html,body,p,.btn,.btn small,.stats,.keys,label.ck{font-size:22px}.btn small{font-size:11px}h2{font-size:22px}}
+img.pxi{image-rendering:pixelated;vertical-align:middle;display:inline-block}
