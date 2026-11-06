@@ -1,0 +1,14 @@
+# Render Blueprint: Render → New → Blueprint → wybierz to repo. Jedna usługa web (Node).
+services:
+  - type: web
+    name: lzy-ignaczaka
+    runtime: node
+    plan: free
+    region: frankfurt          # najbliżej Polski = najmniejszy ping w co-opie
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
