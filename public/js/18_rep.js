@@ -61,7 +61,7 @@ drawHUD = function (dt) {
   var o = R.P, l = players(), me = localIdx(), main = l[me] || l[0];
   if (main && R.P !== main) usePlayer(main);
   _drawHUD(dt);
-  if (l.length > 1) drawHUD2(l[1 - me], 1 - me);
+  if (l.length > 1) { drawHUD2(l[1 - me], 1 - me); X.setTransform(VIEW.s, 0, 0, VIEW.s, VIEW.ox, VIEW.oy); hudText('P' + (me + 1) + ' • TY', 52, 40, 9, me ? '#5fb4ff' : '#f0c43a', 'left'); }
   if (R.P !== o) usePlayer(o);
 };
 drawHUD2 = function (P, idx) {
