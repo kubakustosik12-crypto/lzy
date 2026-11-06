@@ -10,10 +10,10 @@ function walk(dir) { for (const f of fs.readdirSync(path.join(PUB, dir))) { cons
 walk('assets');
 let html = fs.readFileSync(path.join(PUB, 'index.html'), 'utf8');
 let css = fs.readFileSync(path.join(PUB, 'css/style.css'), 'utf8').replace('url(../assets/font/ignaczak-pixel.ttf)', 'url(' + dataUri('assets/font/ignaczak-pixel.ttf') + ')');
-html = html.replace('<link rel="stylesheet" href="css/style.css">', () => '<style>\n' + css + '\n</style>');
-const scripts = [...html.matchAll(/<script src="(js\/[^"]+)"><\/script>\n?/g)];
+html = html.replace(/<link rel="stylesheet" href="css\/style\.css[^"]*">/, () => '<style>\n' + css + '\n</style>');
+const scripts = [...html.matchAll(/<script src="(js\/[^"?]+)(?:\?[^"]*)?"><\/script>\n?/g)];
 const code = scripts.map(m => fs.readFileSync(path.join(PUB, m[1]), 'utf8')).join('\n');
-html = html.replace(scripts.map(m => m[0]).join(''), '');
+scripts.forEach(m => { html = html.replace(m[0], ''); });
 html = html.replace('</body>', () => '<script>window.EMBED = ' + JSON.stringify(embed) + ';</script>\n<script>\n' + code.replace(/<\/script/g, '<\\/script') + '\n</script>\n</body>');
 fs.mkdirSync(OUT, { recursive: true });
 fs.writeFileSync(path.join(OUT, 'lzy-ignaczaka.html'), html);
