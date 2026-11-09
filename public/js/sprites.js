@@ -320,6 +320,33 @@ S('st_ss', '#c8c4bc', `.......... ..kkkk.... .kaaaak... .kawaak.kk .kaaaakkak .k
 S('st_luck', '#6fbf3a', `.kk..kk... kaak.kaak. kaaakaaak. .kaaaaak.. kaaakaaak. kaak.kaak. .kk.kk.... ....kk....`);
 S('st_clock', '#f0c43a', `..kkkkk... .kaaaaak.. kaaakaaak. kaaakaaak. kaaakkaak. kaaaaaaak. .kaaaaak.. ..kkkkk...`);
 
+
+// ---------- update 3.0: kupa, puszki, listy, łazienka, zielsko, nowe głowy ----------
+S('poop', '#7a4a22', `
+.......kk....... ......kaak...... .....kaawk...... ....kkaaabk..... ...kaaakkbbk.... ..kaawaaaabbk... ..kaaaaaaaabk... .kkaaaaaaabbkk.. kaawaaaaaaaabbk. kaaaaaaaaaaabbk. kbaaaaaaaaabbbk. .kbbbbbbbbbbbk.. ..kkkkkkkkkkk...`);
+S('dzik', '#7ad23a', `
+...kkkkkkk.... ..kUuuuuuUk... ..kkkkkkkkk... ..kaaaaaaak... ..kawwkwwak... ..kawkwkwak... ..kawwkwwak... ..kaaaaaaak... ..kaawaaaak... ..kawaaaabk... ..kaaaaaabk... ..krrrrrrrk... ..kRRRRRRRk... ...kkkkkkk....`);
+S('letter', '#d8302a', `
+kkkkkkkkkkkkkkkk kaaaaaaaaaaaaaak kakaaaaaaaaaakak kaakaaaaaaaakaak kaaakaaaaaakaaak kaaaakaGGakaaaak kaaaaakGGkaaaaak kaaaaaakkaaaaaak kaaaaakaakaaaaak kaaaaaaaaaaaaaak kaaaaaaaaaaaaaak kkkkkkkkkkkkkkkk`);
+S('toilet', '#f4f0e8', `
+..kkkkkkkkkk.... ..kaaaaaaaak.... ..kawaaaaaak.... ..kaaaaaaaak.... ..kkkkkkkkkk.... .kkaaaaaaaakk... kaaaxxxxxxaaak.. kaaxxNNNNxxaak.. kaaxNNNNNNxaak.. .kaaxxxxxxaak... ..kkaaaaaakk.... ....kaaaak...... ....kaaaak...... ...kkkkkkkk.....`);
+S('joint', '#f4f0e8', `
+............kk.. ...........kok.. ..........kaRk.. .........kaak... ........kaak.... .......kaak..... ......kaak...... .....kaak....... ....kaak........ ...kgak......... ..kNNk.......... ..kkk...........`);
+S('pipe', '#8a5a32', `
+..kkkkk......... .kaaaaak........ .kaGGGak........ .kaaaaak........ ..kaaak......... ...kaaak........ ....kaaakkkkk... .....kaaaaaaak.. ......kkkkkkkk..`);
+S('slipper', '#c84a7a', `
+....kkkkkkkk.... ..kkaaaaaaaakk.. .kaawaaaaaaaabk. kaawaaaaaaaaabbk kaaaddddddddabbk kaaadwdwdwddabbk .kaaddddddddabk. ..kkaaaaaaaakk.. ....kkkkkkkk....`, '#f4f0e8');
+S('car', '#5fb4ff', `
+................ ....kkkkkkk..... ...kaawwwwak.... ..kaawkkkkwak... .kkaaaaaaaaakkk. kaawaaaaaaaaaabk kaaaaaaaaaaaaabk kbkkkbbbbbkkkbbk .kHHk.....kHHk.. ..kk.......kk...`);
+S('rasta', '#d8302a', `
+................ ......kkkk...... ....kkggggkk.... ...kggggggggk... ..kyyyyyyyyyyk.. ..kyyyyyyyyyyk.. .kaaaaaaaaaaaak. .kaaaaaaaaaaaak. kkkkkkkkkkkkkkkk`);
+S('h_wozny', '#d8c0a0', `
+....kkkkkkkk.... ...kGGGGGGGGk... ..kGGWGGGGGGGk.. ..kaaaaaaaaaabk. .kaaaaaaaaaaaabk .kakkkaaaakkkabk .kakxkaaaakxkabk .kaaaaaaaaaaaabk .kaaaaaSSaaaaabk .kaaHHHHHHHHaabk .kaHHkkkkkkHHabk .kaaaHHHHHHaaabk ..kaaaaaaaaabk.. ...kaaaaaaabk... ....kkkkkkkk.....`);
+S('h_sekretarz', '#d8c8b8', `
+....kkkkkkkk.... ...kWWWWWWWWk... ..kWWGWWWWWWWk.. ..kWWaaaaaaWWk.. .kaaaaaaaaaaaabk .kakkkaaaakkkkbk .kakxkaaaakxkabk .kaaaaaaaaaaaabk .kaaaaaSSaaaaabk .kaaaaSSSSaaaabk .kaakkkkkkkkaabk .kaaaaaaaaaaaabk ..kbaaaaaaaabk.. ..kkbbbbbbbbkk.. ...kkkkkkkkkk...`);
+S('h_petent', '#c8b8a8', `
+...kkkkkkkkkk... ..kHHHHHHHHHHk.. .kkkkkkkkkkkkkk. ..kaaaaaaaaabk.. .kaaaaaaaaaaaabk .kakxxaaaaxxkabk .kaaaaaaaaaaaabk .kaaaaaSSaaaaabk .kaaakkkkkkaaabk .kaaaaaaaaaaaabk ..kaaaaaaaaabk.. ...kbbbbbbbbk... ....kkkkkkkk....`);
+
 // ---------- rysowanie: sprite → płótno w kolorach (pamięć podręczna) ----------
 var SPRC = {};
 function sprShade(hex, f) { var h = parseInt(hex.slice(1), 16), r = h >> 16 & 255, g = h >> 8 & 255, b = h & 255; if (f > 0) { r += (255 - r) * f; g += (255 - g) * f; b += (255 - b) * f; } else { r *= 1 + f; g *= 1 + f; b *= 1 + f; } return 'rgb(' + (r | 0) + ',' + (g | 0) + ',' + (b | 0) + ')'; }

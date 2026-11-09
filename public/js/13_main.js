@@ -45,7 +45,7 @@ function world(dt) {
 // ---------- rysowanie ----------
 function render(a) {
   X = MAINX; X.setTransform(1, 0, 0, 1, 0, 0); X.fillStyle = '#0b0908'; X.fillRect(0, 0, CV.width, CV.height);
-  if (!R || GAME.state === 'title' || GAME.state === 'boot') { drawTitleBG(); PIX.quant = SET.pal !== false; PIX.quantize(MAINX, CV.width, CV.height); return; }
+  if (!R || GAME.state === 'title' || GAME.state === 'boot') { drawTitleBG(); PIX.quant = SET.palx === true; PIX.quantize(MAINX, CV.width, CV.height); return; }
   renderScene(a);
   X = MAINX; X.setTransform(1, 0, 0, 1, 0, 0);
   var W = SC.width, H = SC.height;
@@ -58,7 +58,7 @@ function render(a) {
   if (allDead()) { X.fillStyle = 'rgba(40,0,0,' + Math.min(.55, (R.P.deadT || 0) * .3) + ')'; X.fillRect(VIEW.ox, VIEW.oy, W, H); }
   X.restore();
   drawHUD(1 / 60);
-  PIX.quant = SET.pal !== false; PIX.quantize(MAINX, CV.width, CV.height);
+  PIX.quant = SET.palx === true; PIX.quantize(MAINX, CV.width, CV.height);
 }
 function renderScene(a) {
   X = SCX; var s = VIEW.s, rm = R.room, P = R.P;

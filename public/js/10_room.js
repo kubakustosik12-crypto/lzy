@@ -82,7 +82,7 @@ function roomLogic(dt) {
   var alive = ENTS.some(function (e) { return !e.dead && !e.ally; });
   if (!rm.cleared && !alive && INTRO.t <= 0) roomCleared(rm);
   if (rm.trap) { rm.trap.t = (rm.trap.t || 0) + dt; if (rm.trap.t > 1 && !R.falling && livePlayers().some(function (q) { return dist(q.x, q.y, rm.trap.x, rm.trap.y) < 18; })) { R.falling = 1; P.fallT = 0; sfx('trap'); } }
-  if (R.falling) { P.fallT += dt; P.vx = P.vy = 0; P.x = lerp(P.x, rm.trap.x, .2); P.y = lerp(P.y, rm.trap.y, .2); if (P.fallT > .9) { R.falling = 0; snapScene(); ROOMT.k = 1; ROOMT.t = 0; ROOMT.dx = 0; ROOMT.dy = 0; ROOMT.fade = 1; startFloor(R.fi + 1); } }
+  if (R.falling) { P.fallT += dt; P.vx = P.vy = 0; P.x = lerp(P.x, rm.trap.x, .2); P.y = lerp(P.y, rm.trap.y, .2); if (P.fallT > .9) { R.falling = 0; snapScene(); ROOMT.k = 1; ROOMT.t = 0; ROOMT.dx = 0; ROOMT.dy = 0; ROOMT.fade = 1; var nf = R.nextFi != null ? R.nextFi : R.fi + 1; R.nextFi = null; startFloor(nf); } }
 }
 function roomCleared(rm) {
   rm.cleared = true; sfx('door'); var P = R.P;

@@ -49,7 +49,7 @@ function drawHUD(dt) {
 function pad2(n) { return (n < 10 ? '0' : '') + n; }
 function fmtTime(t) { t = Math.floor(t); var m = Math.floor(t / 60), s = t % 60; return m + ':' + (s < 10 ? '0' : '') + s; }
 var ROOMCOL = { boss: '#c83a2a', treasure: '#e8b84a', shop: '#5aa05a', secret: '#6a6a7a', arcade: '#a04ab8', start: '#8ab8d8' };
-var ROOMICON = { boss: '💀', treasure: '⭐', shop: '🛒', secret: '❔', arcade: '🎰', planet: '🪐' };
+var ROOMICON = { boss: '💀', treasure: '⭐', shop: '🛒', secret: '❔', arcade: '🎰', planet: '🪐', lazienka: '🚽' };
 function drawMinimap(x, y, w, h, cw, ch, big) {
   var F = R.floor, cur = R.room; X.save(); X.fillStyle = 'rgba(0,0,0,' + (big ? .35 : .4) + ')'; rr(x, y, w, h, 6); X.fill(); X.beginPath(); X.rect(x + 2, y + 2, w - 4, h - 4); X.clip();
   var cx, cy; if (cur.gx >= 0) { cx = cur.gx + cur.cw / 2; cy = cur.gy + cur.ch / 2; } else { var bb = F.rooms[F.boss]; cx = bb.gx + .5; cy = bb.gy + .5; }

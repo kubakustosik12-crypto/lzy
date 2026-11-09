@@ -68,12 +68,12 @@ function showSettings(back) {
     '<label class="ck">Muzyka <input type="range" id="sm" min="0" max="1" step=".05" value="' + SET.mus + '"></label>' +
     '<label class="ck"><input type="checkbox" id="ss"' + (SET.shake ? ' checked' : '') + '> Trzęsienie ekranu</label>' +
     '<label class="ck"><input type="checkbox" id="sh"' + (SET.hud ? ' checked' : '') + '> Pokazuj statystyki</label>' +
-    '<label class="ck"><input type="checkbox" id="sp"' + (SET.pal !== false ? ' checked' : '') + '> Paleta pixel-art (64 kolory)</label>' +
+    '<label class="ck"><input type="checkbox" id="sp"' + (SET.palx === true ? ' checked' : '') + '> Retro paleta (64 kolory, grubszy piksel)</label>' +
     '<label class="ck"><input type="checkbox" id="sf"' + (document.fullscreenElement ? ' checked' : '') + '> Pełny ekran (F11)</label><div id="sb"></div>');
   $('sv').oninput = function () { SET.vol = +this.value; setVolumes(); saveSet(); }; $('sm').oninput = function () { SET.mus = +this.value; setVolumes(); saveSet(); };
   $('ss').onchange = function () { SET.shake = this.checked; saveSet(); }; $('sh').onchange = function () { SET.hud = this.checked ? 1 : 0; saveSet(); };
   $('sf').onchange = function () { toggleFS(); };
-  $('sp').onchange = function () { SET.pal = this.checked; saveSet(); };
+  $('sp').onchange = function () { SET.palx = this.checked; saveSet(); };
   $('sb').appendChild(mkBtn('Gotowe', '', back, 'pri'));
 }
 function toggleFS() { if (window.syrFullscreen) { window.syrFullscreen(); return; } try { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen(); } catch (e) { } }

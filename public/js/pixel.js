@@ -5,7 +5,7 @@
 var PIX = (function () {
   'use strict';
   var P = {
-    S: 0.65,          // ile pikseli na jednostkę świata (kafel 40 → 26 px, jak w Isaacu)
+    S: 1.0,          // ile pikseli na jednostkę świata (kafel 40 → 26 px, jak w Isaacu)
     quant: true,      // filtr palety
     pal: null, lut: null, pal32: null
   };
