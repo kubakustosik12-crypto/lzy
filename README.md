@@ -1,4 +1,4 @@
-# Łzy Ignaczaka — 5 Koszmarów (pixel art + co-op online)
+# Łzy Ignaczaka — 5 Koszmarów (v3.0: łzy i kupa, Matka, dwa listy)
 
 Prywatna kopia tylko dla Filipa. Roguelike w stylu *The Binding of Isaac: Repentance+*
 z postaciami, bossami i światem z gry **5 Koszmarów Szymona Ignaczaka**.
@@ -9,6 +9,11 @@ z postaciami, bossami i światem z gry **5 Koszmarów Szymona Ignaczaka**.
 - 141 przedmiotów (w tym 40 nowych: anielskie, straszne, aktywne), karty, puszki, drobiazgi, sklep u Heńka, pokoje diabła i anioła, ziarna biegów
 - własne ręcznie rysowane ikony i potwory w pixel arcie (bez emoji), kontury jak w Isaacu, ciemniejsze i straszniejsze piętra
 - **co-op**: na jednym komputerze albo **przez internet** (pokój z kodem); w co-opie przedmioty są zawsze podwójnie
+- **v3.0**: Matka Ignaczaka (Piwnica II), dwa listy i dwie ścieżki (Olimp albo Kolejka → Kombinat → Towarzysz Pierwszy Sekretarz), dwa zakończenia
+- Łazienka pracownicza nr 20 z mini-bossami (Kierownik zmiany, Sprzątaczka, Zatkany kibel)
+- nowe postacie: Pocket (kot strzelający kupą, je kupy), Woźny Zenek, Babcia Halina; nowy potwór: Gość z nożem
+- rodzaje kup (złota, czerwona, czarna, tęczowa, biała, z kukurydzą), puszki Dzika ładujące przedmiot, zielsko, przemiany Zjarany / Kupiarz / Towarzysz
+- kolorowe łzy zależne od przedmiotów, wyższa rozdzielczość (mniej pikselozy)
 - planetarium z 11 przedmiotami-planetami, stroje: przedmioty widać na postaci, wstęga z nazwą przedmiotu
 
 ## Uruchomienie u siebie
@@ -83,6 +88,8 @@ public/js/
   16_icons.js        podmiana symboli na sprite'y (gra, HUD, teksty, menu)
   17_items.js        nowe przedmioty i mechaniki, częstsze pokoje anioła
   18_rep.js          planetarium, co-op x2, HUD każdego gracza, stroje z przedmiotów, wstęga
+  19_update.js       łzy, kupy, Pocket, Dzik, zielsko, nowe przedmioty i postacie, łazienka nr 20
+  20_story.js        Matka Ignaczaka, dwa listy, Kolejka, Kombinat, Sekretarz, zakończenia
 public/assets/
   faces/faces_<h>.png  pikselowe twarze (atlasy 12–128 px) – można poprawiać ręcznie w Aseprite
   img/                 zdjęcia źródłowe twarzy i klatki bossów z 5 Koszmarów
