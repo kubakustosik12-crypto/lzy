@@ -1,4 +1,4 @@
-// Łzy Ignaczaka – serwer gry: pliki statyczne + pokoje co-op online (WebSocket, ścieżka /ws)
+// The Binding of Ignaczak – serwer gry: pliki statyczne + pokoje co-op online (WebSocket, ścieżka /ws)
 'use strict';
 const http = require('http');
 const fs = require('fs');
@@ -88,5 +88,5 @@ setInterval(() => {
   const now = Date.now(); rooms.forEach((r, k) => { if (!r.slots.some(Boolean) || now - r.created > 12 * 3600e3) rooms.delete(k); });
 }, 20000).unref();
 
-server.listen(PORT, () => console.log('Łzy Ignaczaka: http://localhost:' + server.address().port));
+server.listen(PORT, () => console.log('The Binding of Ignaczak: http://localhost:' + server.address().port));
 module.exports = server;

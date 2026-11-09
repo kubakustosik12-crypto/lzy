@@ -1,4 +1,4 @@
-// Składa całą grę w jeden plik dist/lzy-ignaczaka.html (gra solo i co-op lokalny bez serwera;
+// Składa całą grę w jeden plik dist/binding-of-ignaczak.html (gra solo i co-op lokalny bez serwera;
 // co-op online wymaga serwera). Użycie: npm run build
 'use strict';
 const fs = require('fs'), path = require('path');
@@ -16,5 +16,5 @@ const code = scripts.map(m => fs.readFileSync(path.join(PUB, m[1]), 'utf8')).joi
 scripts.forEach(m => { html = html.replace(m[0], ''); });
 html = html.replace('</body>', () => '<script>window.EMBED = ' + JSON.stringify(embed) + ';</script>\n<script>\n' + code.replace(/<\/script/g, '<\\/script') + '\n</script>\n</body>');
 fs.mkdirSync(OUT, { recursive: true });
-fs.writeFileSync(path.join(OUT, 'lzy-ignaczaka.html'), html);
-console.log('dist/lzy-ignaczaka.html', (html.length / 1048576).toFixed(2), 'MB');
+fs.writeFileSync(path.join(OUT, 'binding-of-ignaczak.html'), html);
+console.log('dist/binding-of-ignaczak.html', (html.length / 1048576).toFixed(2), 'MB');

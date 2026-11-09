@@ -1,8 +1,8 @@
 {
-  "name": "lzy-ignaczaka",
+  "name": "binding-of-ignaczak",
   "version": "2.0.0",
   "private": true,
-  "description": "Łzy Ignaczaka – pikselowy roguelike w stylu The Binding of Isaac z postaciami z 5 Koszmarów Szymona Ignaczaka. Kopia prywatna.",
+  "description": "The Binding of Ignaczak – pikselowy roguelike w stylu The Binding of Isaac z postaciami z 5 Koszmarów Szymona Ignaczaka. Kopia prywatna.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

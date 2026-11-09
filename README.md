@@ -1,4 +1,4 @@
-# Łzy Ignaczaka — 5 Koszmarów (v3.0: łzy i kupa, Matka, dwa listy)
+# The Binding of Ignaczak (v3.5)
 
 Prywatna kopia tylko dla Filipa. Roguelike w stylu *The Binding of Isaac: Repentance+*
 z postaciami, bossami i światem z gry **5 Koszmarów Szymona Ignaczaka**.
@@ -9,6 +9,7 @@ z postaciami, bossami i światem z gry **5 Koszmarów Szymona Ignaczaka**.
 - 141 przedmiotów (w tym 40 nowych: anielskie, straszne, aktywne), karty, puszki, drobiazgi, sklep u Heńka, pokoje diabła i anioła, ziarna biegów
 - własne ręcznie rysowane ikony i potwory w pixel arcie (bez emoji), kontury jak w Isaacu, ciemniejsze i straszniejsze piętra
 - **co-op**: na jednym komputerze albo **przez internet** (pokój z kodem); w co-opie przedmioty są zawsze podwójnie
+- **v3.5**: nowa nazwa, Dziennik (16 gazet, listów i notatek), sekretna ścieżka „Koszmar numer 6” (Rodzinne zdjęcie → Mieszkanie z lat 70. → Szymon z koszmaru → prawdziwe zakończenie, postać Cień Szymona), walka z Aniołem Stróżem po wysadzeniu posągu, odblokowania za zakończenia
 - **v3.0**: Matka Ignaczaka (Piwnica II), dwa listy i dwie ścieżki (Olimp albo Kolejka → Kombinat → Towarzysz Pierwszy Sekretarz), dwa zakończenia
 - Łazienka pracownicza nr 20 z mini-bossami (Kierownik zmiany, Sprzątaczka, Zatkany kibel)
 - nowe postacie: Pocket (kot strzelający kupą, je kupy), Woźny Zenek, Babcia Halina; nowy potwór: Gość z nożem
@@ -90,6 +91,7 @@ public/js/
   18_rep.js          planetarium, co-op x2, HUD każdego gracza, stroje z przedmiotów, wstęga
   19_update.js       łzy, kupy, Pocket, Dzik, zielsko, nowe przedmioty i postacie, łazienka nr 20
   20_story.js        Matka Ignaczaka, dwa listy, Kolejka, Kombinat, Sekretarz, zakończenia
+  21_secret.js       Dziennik, Koszmar numer 6, Cień Szymona, Anioł Stróż Koszmaru
 public/assets/
   faces/faces_<h>.png  pikselowe twarze (atlasy 12–128 px) – można poprawiać ręcznie w Aseprite
   img/                 zdjęcia źródłowe twarzy i klatki bossów z 5 Koszmarów

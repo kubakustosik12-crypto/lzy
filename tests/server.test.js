@@ -13,7 +13,7 @@ test.after(() => { server.closeAllConnections(); server.close(); });
 
 test('health i strona gry', async () => {
   const h = await (await fetch(base() + '/health')).json(); assert.strictEqual(h.ok, true);
-  const html = await (await fetch(base() + '/')).text(); assert.match(html, /Łzy Ignaczaka/);
+  const html = await (await fetch(base() + '/')).text(); assert.match(html, /The Binding of Ignaczak/);
   assert.strictEqual((await fetch(base() + '/../server.js')).status !== 200 || true, true);
 });
 test('pokój: tworzenie, dołączanie, start, wejście, hash', async () => {
