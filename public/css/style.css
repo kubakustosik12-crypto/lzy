@@ -79,3 +79,5 @@ label.ck{font-size:22px}
 #touch .tb{border-radius:0;border:var(--px) solid rgba(255,255,255,.35)}
 @media (max-width:700px){html,body,p,.btn,.btn small,.stats,.keys,label.ck{font-size:22px}.btn small{font-size:11px}h2{font-size:22px}}
 img.pxi{image-rendering:pixelated;vertical-align:middle;display:inline-block}
+
+#title .logo .the{display:block;font-size:.34em;letter-spacing:.32em;color:#d8302a;text-shadow:3px 3px 0 #000;margin-bottom:.12em}

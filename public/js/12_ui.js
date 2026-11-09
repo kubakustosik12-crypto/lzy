@@ -17,7 +17,7 @@ function showTitle() {
   m.appendChild(mkBtn('Postępy', 'Odblokowania i statystyki', showProgress));
   m.appendChild(mkBtn('Ustawienia', '', function () { showSettings(showTitle); }));
   m.appendChild(mkBtn('Sterowanie', '', function () { showControls(showTitle); }));
-  $('ver').textContent = 'Łzy Ignaczaka v' + (window.BUILD || GV) + (window.LZY_APP ? ' • Windows' : '') + ' • kopia dla Ciebie';
+  $('ver').textContent = 'The Binding of Ignaczak v' + (window.BUILD || GV) + (window.LZY_APP ? ' • Windows' : '') + ' • kopia dla Ciebie';
   showScr('title');
 }
 // ---------- wybór postaci ----------
